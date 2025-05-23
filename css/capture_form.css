@@ -1,0 +1,20 @@
+form{
+  background-color: #CAF7FF;
+}
+.dato{
+  width:100%;
+  text-align: left;
+}
+.etiqueta{
+  width:40%;
+  text-align: right;
+}
+.control{
+  margin: 0.5%;
+  text-align: left;
+  width:40%;
+}
+input, select{
+  margin-left: 1%;
+  width:70%;
+}

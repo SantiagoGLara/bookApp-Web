@@ -1,0 +1,76 @@
+table {
+  width: 100%;
+  border: solid 2px;
+  /* Keep border-collapse separate to allow border-radius on the table itself */
+  border-collapse: separate;
+  /* Set a border-radius for the entire table if desired */
+  border-radius: 8px; /* Example: adds rounded corners to the whole table */
+  font-family: serif;
+  margin: 0;
+  /* Remove border-spacing as we'll add borders to cells */
+  border-spacing: 0;
+}
+
+table thead th {
+  font-weight: 600;
+  /* Apply bottom border to header cells */
+  border-bottom: 2px solid #DDE2E6;
+  /* Add a right border to header cells */
+  border-right: 1px solid #DDE2E6; /* Or use the same color as border-bottom */
+  padding: 12px 20px; /* Add padding here for consistent spacing */
+}
+
+/* Remove the right border from the last header cell to avoid double borders */
+table thead th:last-child {
+  border-right: none;
+}
+
+.pastel-table tbody td {
+  padding: 12px 20px;
+  border-bottom: 1px solid #EEEEEE;
+  background-color: #FFFFFF;
+  transition: background-color 0.3s ease;
+  /* Add a right border to all data cells */
+  border-right: 1px solid #EEEEEE; /* Use the same color as border-bottom */
+}
+
+/* Remove the right border from the last data cell in each row to avoid double borders */
+.pastel-table tbody td:last-child {
+  border-right: none;
+}
+
+/* Styles for the first row (header) */
+tr:first-child {
+  background-color: #CCCCCC;
+}
+
+/* Apply border-radius to the first and last header cells */
+tr:first-child th:first-child {
+  border-top-left-radius: 8px;
+}
+
+tr:first-child th:last-child {
+  border-top-right-radius: 8px;
+}
+
+tr:nth-child(odd):not(tr:first-child) {
+  background-color: #FFFFFF;
+}
+
+tr:nth-child(even) {
+  background-color: antiquewhite;
+}
+
+tr:hover:not(tr:first-child):not(tr:last-child) {
+  background-color: dimgray;
+  color: whitesmoke;
+}
+
+/* Optional: To make sure the bottom corners of the table are rounded */
+tr:last-child td:first-child {
+    border-bottom-left-radius: 8px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
+}
