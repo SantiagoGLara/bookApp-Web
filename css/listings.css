@@ -1,13 +1,12 @@
 table {
-  width: 100%;
+  width: 80%;
+  margin-left: 10%;
   border: solid 2px;
   /* Keep border-collapse separate to allow border-radius on the table itself */
   border-collapse: separate;
   /* Set a border-radius for the entire table if desired */
-  border-radius: 8px; /* Example: adds rounded corners to the whole table */
+  border-radius: 5px; /* Example: adds rounded corners to the whole table */
   font-family: serif;
-  margin: 0;
-  /* Remove border-spacing as we'll add borders to cells */
   border-spacing: 0;
 }
 
