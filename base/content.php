@@ -19,13 +19,13 @@ if($user)
 		case '22':include('../content/clientes/client_modify.php');break;
 		case '23':include('../content/clientes/client_delete.php');break;
 		//cases ajenos a mi parte xd 
-		case '30':include('../content/provider.php');
+		case '30':include('../content/proveedores/provider.php');
 		break;
-		case '31':include('../content/provider_new.php');
+		case '31':include('../content/proveedores/provider_new.php');
 		break;//funciones provedores NEW
-		case '32':include('..//content/provider_modify.php');
+		case '32':include('../content/proveedores/provider_modify.php');
 		break;//funciones provedores MODIFICAR
-		case '33':include('../content/provider_delete.php');
+		case '33':include('../content/proveedores/provider_delete.php');
 		break;//funciones provedores DELETE
 
 		case '61':include('../content/editoriales/editorial_new.php');break;

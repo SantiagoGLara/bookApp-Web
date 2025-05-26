@@ -1,5 +1,5 @@
 <?php
-    $consulta="SELECT nombre,numcelular,email,fecha_alta FROM proveedores order by  nombre";
+    $consulta="SELECT id,nombre,numcelular,email,fecha_alta FROM proveedores order by  nombre";
     $result=bd_consulta($consulta);
 ?>
 <script type="text/javascript">
@@ -23,7 +23,7 @@
         <th>Numero Celular</th>        
         <th>Email</th>        
         <th>Fecha Alta</th>
-        <th><a href="../base/index.php?op=31">+ &#128218;</a></th><!-- ADD PROVEDOR  -->
+        <th><a href="../../base/index.php?op=31">+ &#128218;</a></th><!-- ADD PROVEDOR  -->
     </tr>
 
 <?php
@@ -38,7 +38,7 @@
     <td><?= $row['email'] ?></td>
     <td><?= $row['fecha_alta'] ?></td>
     <!-- <td><a class="botonBorrar" href="../base/index.php ?op=33 & id=<?= $row['id'] ?>">&#128465;</a></td> -->
-    <td><a href="../base/index.php?op=32&id=<?=$row['id']?>">&#9997;&#127995;</a></td>
+    <td><a href="../../base/index.php?op=32&id=<?=$row['id']?>">&#9997;&#127995;</a></td>
 </tr>
 <?php } ?>
 <tr>
