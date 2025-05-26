@@ -45,12 +45,11 @@ if (strlen($_FILES['contraportada']['name']) > 0) {
   $contraportada = $row['imagen_contraportada'];
 }
 
-$consulta = 'UPDATE book SET titulo="' . $titulo . '", tipo=' . $tipo . ', paginas=' . $numPagina .
-  ', editorial=' . $editorial . ', isbn="' . $isbn . '", pais=' . $pais . ', dimensiones="' . $dimension .
-  '", idioma=' . $lenguaje . ', sobrecubierta=' . $sobrecubierta . ', pasta_dura=' . $tipoPasta .
-  ', resumen="' . $resumen . '", precio=' . $precio . ', autor=' . $autor .
-  ', imagen_portada="' . $portada . '", imagen_contraportada="' . $contraportada . '", estado="' . $estado . '" WHERE id=' . $id;
-
+$consulta = "UPDATE book SET titulo='" . $titulo . "', tipo=" . $tipo . ", paginas=" . $numPagina .
+  ", editorial=" . $editorial . ", isbn='" . $isbn . "', pais=" . $pais . ", dimensiones='" . $dimension .
+  "', idioma=" . $lenguaje . ", sobrecubierta=" . $sobrecubierta . ", pasta_dura=" . $tipoPasta .
+  ", resumen='" . $resumen . "', precio=" . $precio . ", autor=" . $autor .
+  ", imagen_portada='" . $portada . "', imagen_contraportada='" . $contraportada . "', estado='" . $estado . "' WHERE id=" . $id;
 
 bd_consulta($consulta);
 

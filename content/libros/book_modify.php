@@ -3,7 +3,7 @@ $consulta = "SELECT id, tipo from tipo";
 $result = bd_consulta($consulta);
 $consulta = "SELECT id, nombre from autor";
 $resultAutores = bd_consulta($consulta);
-$consulta = "SELECT id,editorial from editorial";
+$consulta = "SELECT id,editorial from editorial where estado!='bajo'";
 $resultEditoriales = bd_consulta($consulta);
 $consulta = "SELECT id,nombre from pais";
 $resultPaises = bd_consulta($consulta);
@@ -45,6 +45,7 @@ $rowBook = mysqli_fetch_assoc($resultBook);
   }
   window.addEventListener("load", asociarEventos);
 </script>
+
 <style media="screen">
   #imgPortada,
   #imgContraPortada {
@@ -62,6 +63,7 @@ $rowBook = mysqli_fetch_assoc($resultBook);
     width: 50%
   }
 </style>
+
 <form class="" action="../content/libros/book_modify_commit.php" method="post" enctype="multipart/form-data">
 
   <div class="dato">
@@ -72,7 +74,6 @@ $rowBook = mysqli_fetch_assoc($resultBook);
       <input type="text" name="id" value="<?= $rowBook['id'] ?>" readonly>
     </div>
   </div>
-
 
   <div class="dato">
     <div class="etiqueta">
@@ -85,7 +86,7 @@ $rowBook = mysqli_fetch_assoc($resultBook);
 
   <div class="dato">
     <div class="etiqueta">
-      <label for="tipo">Tipo de libro de acuerdo al contenido:</label>
+      <label for="tipo">Tipo de libro:</label>
     </div>
     <div class="control">
       <select class="" name="tipo">
@@ -97,6 +98,7 @@ $rowBook = mysqli_fetch_assoc($resultBook);
       </select>
     </div>
   </div>
+
   <div class="dato">
     <div class="etiqueta">
       <label for="numpagina">Número de página:</label>
@@ -105,37 +107,45 @@ $rowBook = mysqli_fetch_assoc($resultBook);
       <input id="numpagina" type="number" name="numpagina" min="10" value="<?= $rowBook['paginas'] ?>">
     </div>
   </div>
+
   <div class="dato">
     <div class="etiqueta">
       <label for="autor">Autor:</label>
+      <label><a href="../base/index.php?op=71&id=<?= $rowBook['id'] ?>">+</a></label>
     </div>
-
     <div class="control">
       <select class="" name="autor">
         <?php
         while ($row2 = mysqli_fetch_assoc($resultAutores)) {
         ?>
-          <option value="<?= $row2['id'] ?>" <?php if ($row2['id'] == $rowBook['autor']) echo 'selected' ?>><?= $row2['nombre'] ?></option>
+          <option value="<?= $row2['id'] ?>" <?php if ($row2['id'] == $rowBook['autor']) echo 'selected' ?>>
+            <?= $row2['nombre'] ?>
+          </option>
         <?php } ?>
       </select>
+      <label><a href="../base/index.php?op=72&id=<?= $rowBook['id'] ?>">&#9997;&#127995;</a></label>
     </div>
-
   </div>
 
   <div class="dato">
     <div class="etiqueta">
       <label for="editorial">Editorial:</label>
+      <label><a href="../base/index.php?op=61&id=<?= $rowBook['id'] ?>">+</a></label>
     </div>
     <div class="control">
       <select class="" name="editorial">
         <?php
         while ($row2 = mysqli_fetch_assoc($resultEditoriales)) {
         ?>
-          <option value="<?= $row2['id'] ?>" <?php if ($row2['id'] == $rowBook['editorial']) echo 'selected' ?>><?= $row2['editorial'] ?></option>
+          <option value="<?= $row2['id'] ?>" <?php if ($row2['id'] == $rowBook['editorial']) echo 'selected' ?>>
+            <?= $row2['editorial'] ?>
+          </option>
         <?php } ?>
       </select>
+      <label><a href="../base/index.php?op=62&id=<?= $rowBook['id'] ?>">&#9997;&#127995;</a></label>
     </div>
   </div>
+
   <div class="dato">
     <div class="etiqueta">
       <label for="isbn">ISBN:</label>
@@ -144,6 +154,7 @@ $rowBook = mysqli_fetch_assoc($resultBook);
       <input name="isbn" pattern="[0-9]{13}" title="Inserte un ISBN válido" placeholder="0000000000000" value="<?= $rowBook['isbn'] ?>">
     </div>
   </div>
+
   <div class="dato">
     <div class="etiqueta">
       <label for="pais">País de origen:</label>
@@ -172,6 +183,7 @@ $rowBook = mysqli_fetch_assoc($resultBook);
       </select>
     </div>
   </div>
+
   <div class="dato">
     <div class="etiqueta">
       <label for="lenguaje">Idioma:</label>
@@ -186,6 +198,7 @@ $rowBook = mysqli_fetch_assoc($resultBook);
       </select>
     </div>
   </div>
+
   <div class="dato">
     <div class="etiqueta">
       <label for="portada">Imagen de la portada:</label>
@@ -195,6 +208,7 @@ $rowBook = mysqli_fetch_assoc($resultBook);
       <img src="../resources/portadas/<?= $rowBook['imagen_portada']  ?>" alt="portada" id="imgPortada" name="imgPortada">
     </div>
   </div>
+
   <div class="dato">
     <div class="etiqueta">
       <label for="contraportada">Imagen de la contraportada:</label>
@@ -222,6 +236,7 @@ $rowBook = mysqli_fetch_assoc($resultBook);
       <input type="radio" id="suave" name="tipo_pasta" value=0 <?php if ($rowBook['pasta_dura'] == 0) echo 'checked' ?>>
     </div>
   </div>
+
   <div class="dato">
     <div class="etiqueta">
       <label for="dura">Pasta dura:</label>
@@ -268,4 +283,5 @@ $rowBook = mysqli_fetch_assoc($resultBook);
       <button type="submit" name="button">Enviar</button>
     </div>
   </div>
+
 </form>

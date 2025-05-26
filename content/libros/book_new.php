@@ -65,7 +65,7 @@
 
       <div class="dato">
         <div class="etiqueta">
-          <label for="tipo">Tipo de libro de acuerdo al contenido:</label>
+          <label for="tipo">Tipo de libro:</label>
         </div>
         <div class="control">
           <select class="" name="tipo">
