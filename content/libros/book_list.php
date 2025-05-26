@@ -1,16 +1,10 @@
 <?php
-//   $consulta="SELECT book.id, isbn, titulo, autor.nombre as autor, tipo.tipo, lenguaje.lenguaje, book.stock, book.precio
-// from book left join autor_libro on book.id=autor_libro.id_libro, autor,tipo,lenguaje
-// where autor.id=autor_libro.id_autor and book.tipo=tipo.id and book.idioma=lenguaje.id";
-// $consulta="SELECT book.id, isbn, titulo, autor.nombre as autor, tipo.tipo, lenguaje.lenguaje, book.stock, book.precio
-// from book inner join tipo on book.tipo=tipo.id
-// inner join lenguaje on book.idioma=lenguaje.id
-// left join autor_libro on book.id=autor_libro.id_libro
-// left join autor on autor.id=autor_libro.id_autor";
-$consulta="SELECT book.id, isbn, titulo, autor.nombre as autor, tipo.tipo, lenguaje.lenguaje, book.stock, book.precio
+$consulta="SELECT book.id, isbn, titulo, autor.nombre as autor, tipo.tipo, lenguaje.lenguaje, book.stock, book.precio, book.estado
 from book inner join tipo on book.tipo=tipo.id
 inner join lenguaje on book.idioma=lenguaje.id
-inner join autor on autor.id=book.autor order by titulo";
+inner join autor on autor.id=book.autor 
+WHERE book.estado != 'bajo'
+order by titulo";
 $result=bd_consulta($consulta);
 ?>
 <script type="text/javascript">
@@ -38,7 +32,6 @@ $result=bd_consulta($consulta);
       <th>Stock</th>
       <th>Precio</th>
       <th><a href="../base/index.php?op=11">+ &#128218;</a></th>
-      <th></th>
     </tr>
     <?php
       $i=0;
@@ -54,7 +47,6 @@ $result=bd_consulta($consulta);
       <td><?= $row['lenguaje'] ?></td>
       <td><?= $row['stock']  ?></td>
       <td><?= $row['precio']  ?></td>
-      <td><a class="botonBorrar" href="../base/index.php?op=13&id=<?= $row['id'] ?>">&#128465;</a></td>
       <td><a href="../base/index.php?op=12&id=<?= $row['id'] ?>">&#9997;&#127995;</a></td>
     </tr>
   <?php } ?>
@@ -62,6 +54,10 @@ $result=bd_consulta($consulta);
       <td></td><td></td><td>El total de filas es <?= $i ?></td>
       <td>
       </td>
-      <td></td><td></td><td>30</td><td>385.00</td><td><a href="#"></a></td><td><a href="#"></a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
   </table>

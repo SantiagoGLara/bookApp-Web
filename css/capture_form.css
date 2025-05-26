@@ -1,18 +1,36 @@
+
 form{
-  background-color: #CAF7FF;
+  margin-top: 2%;
+  background-color: #e7ddd3;
+  width: 60%;
+  margin-left: 20%;
+  border-radius: 5px;
+  font-size: larger;
 }
 .dato{
+  margin-left: 15%;
   width:100%;
   text-align: left;
+}
+.dato:first-child{
+  margin-top: 2%;
 }
 .etiqueta{
   width:40%;
   text-align: right;
+  flex: 0 0 40%;
 }
 .control{
   margin: 0.5%;
   text-align: left;
   width:40%;
+  flex: .8;
+}
+select{
+  flex: .72;
+}
+textarea{
+  flex: .72;
 }
 input, select{
   margin-left: 1%;

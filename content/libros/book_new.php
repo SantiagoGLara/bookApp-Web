@@ -9,9 +9,6 @@
   $resultPaises=bd_consulta($consulta);
   $consulta="SELECT id,lenguaje from lenguaje";
   $resultLenguajes=bd_consulta($consulta);
-  $consulta="SELECT * from book where id=".$_GET['id'];
-  $resultBook=bd_consulta($consulta);
-  $rowBook=mysqli_fetch_assoc($resultBook);
 ?>
 
 <script type="text/javascript">
@@ -54,26 +51,15 @@
   .archivos{
     width:50%
   }
-
 </style>
-    <form class="" action="../content/book_modify_commit.php" method="post" enctype="multipart/form-data">
-
-      <div class="dato">
-        <div class="etiqueta">
-          <label for="id">ID del libro:</label>
-        </div>
-        <div class="control">
-          <input type="text" name="id" value="<?= $rowBook['id']?>" readonly>
-        </div>
-      </div>
-
-
+    <form class="" action="../content/libros/book_new_commit.php" method="post" enctype="multipart/form-data">
+     
       <div class="dato">
         <div class="etiqueta">
           <label for="titulo">Titulo del libro:</label>
         </div>
         <div class="control">
-          <input type="text" name="titulo" value="<?= $rowBook['titulo']  ?>">
+          <input type="text" name="titulo" value="">
         </div>
       </div>
 
@@ -86,34 +72,34 @@
           <?php
             while($row=mysqli_fetch_assoc($result)){
            ?>
-            <option value="<?= $row['id'] ?>" <?php if($row['id']==$rowBook['tipo']) echo 'selected'?>><?= $row['tipo'] ?></option>
+            <option value="<?= $row['id'] ?>"><?= $row['tipo'] ?></option>
           <?php } ?>
           </select>
         </div>
       </div>
+
       <div class="dato">
         <div class="etiqueta">
           <label for="numpagina">Número de página:</label>
         </div>
         <div class="control">
-          <input id="numpagina" type="number" name="numpagina" min="10" value="<?= $rowBook['paginas'] ?>">
+          <input id="numpagina" type="number" name="numpagina" min="10" value="10">
         </div>
       </div>
+
       <div class="dato">
         <div class="etiqueta">
           <label for="autor">Autor:</label>
         </div>
-
         <div class="control">
           <select class="" name="autor">
           <?php
             while($row2=mysqli_fetch_assoc($resultAutores)){
            ?>
-            <option value="<?= $row2['id'] ?>" <?php if($row2['id']==$rowBook['autor']) echo 'selected'?>  ><?= $row2['nombre'] ?></option>
+            <option value="<?= $row2['id'] ?>"><?= $row2['nombre'] ?></option>
           <?php } ?>
           </select>
         </div>
-
       </div>
 
       <div class="dato">
@@ -125,19 +111,21 @@
           <?php
             while($row2=mysqli_fetch_assoc($resultEditoriales)){
            ?>
-            <option value="<?= $row2['id'] ?>"  <?php if($row2['id']==$rowBook['editorial']) echo 'selected'?>    ><?= $row2['editorial'] ?></option>
+            <option value="<?= $row2['id'] ?>"><?= $row2['editorial'] ?></option>
           <?php } ?>
           </select>
         </div>
       </div>
+
       <div class="dato">
         <div class="etiqueta">
           <label for="isbn">ISBN:</label>
         </div>
         <div class="control">
-          <input name="isbn" pattern="[0-9]{13}" title="Inserte un ISBN válido" placeholder="0000000000000" value="<?= $rowBook['isbn'] ?>">
+          <input name="isbn" pattern="[0-9]{13}" title="Inserte un ISBN válido" placeholder="0000000000000">
         </div>
       </div>
+
       <div class="dato">
         <div class="etiqueta">
           <label for="pais">País de origen:</label>
@@ -147,7 +135,7 @@
           <?php
             while($row3=mysqli_fetch_assoc($resultPaises)){
            ?>
-            <option value="<?= $row3['id'] ?>" <?php if($row3['id']==$rowBook['pais']) echo 'selected'?>    ><?= $row3['nombre'] ?></option>
+            <option value="<?= $row3['id'] ?>"><?= $row3['nombre'] ?></option>
           <?php } ?>
           </select>
         </div>
@@ -160,12 +148,13 @@
         <div class="control">
           <select class="" name="dimension">
             <?php for($i=1;$i<count($dimensiones);$i++) {?>
-            <option value="<?= $i ?>" <?php if($dimensiones[$i]==$rowBook['dimensiones']) echo 'selected'?>><?= $dimensiones[$i] ?></option>
+              <option value="<?= $i ?>"><?= $dimensiones[$i] ?></option>
           <?php } ?>
             <option value="99">Otro</option>
           </select>
         </div>
       </div>
+
       <div class="dato">
         <div class="etiqueta">
           <label for="lenguaje">Idioma:</label>
@@ -175,27 +164,29 @@
           <?php
             while($row4=mysqli_fetch_assoc($resultLenguajes)){
            ?>
-            <option value="<?= $row4['id'] ?>" <?php if($row4['id']==$rowBook['idioma']) echo 'selected'?>   ><?= $row4['lenguaje'] ?></option>
+            <option value="<?= $row4['id'] ?>"><?= $row4['lenguaje'] ?></option>
           <?php } ?>
           </select>
         </div>
       </div>
+
       <div class="dato">
         <div class="etiqueta">
           <label for="portada">Imagen de la portada:</label>
         </div>
         <div class="control">
           <input type="file" id="botonPortada" name="portada" value="" accept="image/*" class="archivos">
-          <img src="../resources/portadas/<?=$rowBook['imagen_portada']  ?>" alt="portada" id="imgPortada" name="imgPortada">
+          <img src="../images/portadaLibro.jpeg" alt="portada" id="imgPortada" name="imgPortada">
         </div>
       </div>
+
       <div class="dato">
         <div class="etiqueta">
           <label for="contraportada">Imagen de la contraportada:</label>
         </div>
         <div class="control">
           <input type="file" id="botonContraPortada" name="contraportada" value="" accept="image/*" class="archivos">
-          <img src="../resources/contraportadas/<?=$rowBook['imagen_contraportada']  ?>" alt="contraportada" id="imgContraPortada">
+          <img src="../images/portadaLibro.jpeg" alt="contraportada" id="imgContraPortada">
         </div>
       </div>
 
@@ -204,23 +195,25 @@
           <label for="sobrecubierta">El libro tiene sobrecubierta:</label>
         </div>
         <div class="control" id="sobrecubierta">
-          <input type="checkbox" name="sobrecubierta" <?php if($rowBook['sobrecubierta']==1) echo 'checked'?> >
+          <input type="checkbox" name="sobrecubierta" checked >
         </div>
       </div>
+
       <div class="dato">
         <div class="etiqueta">
-          <label for="suave">Pasta suave:</label>
+          <label for="tipo_pasta">Pasta suave:</label>
         </div>
         <div class="control" class="tipo_pasta">
-          <input type="radio" id="suave" name="tipo_pasta" value=0 <?php if($rowBook['pasta_dura']==0) echo 'checked'?>>
+          <input type="radio" name="tipo_pasta" value="0" checked>
         </div>
       </div>
+      
       <div class="dato">
         <div class="etiqueta">
-          <label for="dura">Pasta dura:</label>
+          <label for="tipo_pasta">Pasta dura:</label>
         </div>
         <div class="control" class="tipo_pasta">
-          <input type="radio" id="dura" name="tipo_pasta" value=1 <?php if($rowBook['pasta_dura']==1) echo 'checked'?>>
+          <input type="radio" name="tipo_pasta" value="1">
         </div>
       </div>
 
@@ -229,7 +222,7 @@
           <label for="resumen">Resumen del libro:</label>
         </div>
         <div class="control">
-          <textarea name="resumen" rows="4" cols="30"><?= $rowBook['resumen'] ?></textarea>
+          <textarea name="resumen" rows="4" cols="30"></textarea>
         </div>
       </div>
 
@@ -238,7 +231,7 @@
           <label for="precio">Precio sugerido:</label>
         </div>
         <div class="control">
-          <input id="precio" type="number" name="precio" value="<?= $rowBook['precio']  ?>">
+          <input id="precio" type="number" name="precio" value="0">
         </div>
       </div>
 
@@ -247,7 +240,7 @@
           <label for="">&nbsp;</label>
         </div>
         <div class="control" id="botones">
-          <button type="reset" name="button" onClick="location.href='../base/index.php?op=10'">Cancelar</button>
+          <button type="reset" name="button">Cancelar</button>
           <button type="submit" name="button">Enviar</button>
         </div>
       </div>

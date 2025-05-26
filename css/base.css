@@ -4,6 +4,9 @@ header{
   padding:0%;
   margin:0%;
 }
+*{
+  font-family:'Jacques Francois', sans-serif;  
+}
 
 body {
     font-family:'Jacques Francois', sans-serif;
@@ -11,6 +14,7 @@ body {
     font-weight: 400;
     font-style: normal;
     padding: 0;
+    background-color: #c0c2bd;
 }
 h1, h2{
   background-color: beige;
@@ -61,4 +65,11 @@ div, li {
 
 #menu_box li:hover a {
     color: lightblue;
+}
+
+button{
+    margin-right: 1%;
+    color: whitesmoke;
+    padding: 5px 10px;
+    background-color: dimgray;
 }
