@@ -1,5 +1,5 @@
 <?php
-    $consulta="SELECT id,nombre,numcelular,email,fecha_alta FROM proveedores order by nombre";
+    $consulta="SELECT id,nombre,numcelular,email,fecha_alta,estado FROM proveedores where estado != 'bajo' order by nombre";
     $result=bd_consulta($consulta);
 ?>
 <script type="text/javascript">

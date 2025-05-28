@@ -1,76 +1,122 @@
 @import url('https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap');
-header{
+
+header {
   text-align: center;
-  padding:0%;
-  margin:0%;
+  padding: 0%;
+  margin: 0%;
 }
-*{
-  font-family:'Jacques Francois', sans-serif;  
+
+* {
+  font-family: 'Jacques Francois', sans-serif;
 }
 
 body {
-    font-family:'Jacques Francois', sans-serif;
-    margin: 0;
-    font-weight: 400;
-    font-style: normal;
-    padding: 0;
-    background-color: #c0c2bd;
+  font-family: 'Jacques Francois', sans-serif;
+  margin: 0;
+  font-weight: 400;
+  font-style: normal;
+  padding: 0;
+  background-color: #c0c2bd;
 }
-h1, h2{
+
+h1,
+h2 {
   background-color: beige;
-  padding:0%;
-  margin:0px;
+  padding: 0%;
+  margin: 0px;
 }
-div, li {
+
+.dato div,
+.etiqueta div,
+.control div {
   display: inline-flex;
-  width:10%;
+  width: 40%;
 }
 
-
+#formulario .control li {
+  display: inline-flex;
+  width: 10%;
+}
 
 #menu_box {
-    width: 100%;
-    background-color: black;
-    padding: 0;
+  width: 100%;
+  background-color: black;
+  padding: 0;
 }
 
 #menu_box ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 60px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
 }
 
 #menu_box li {
-    flex-grow: 1;
-    text-align: center; /* This centers the text within each list item */
-    margin-left: 5%;
+  flex-grow: 1;
+  text-align: center;
+  margin-left: 5%;
 }
 
 #menu_box a {
-    display: block;
-    padding: 15px 0;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+  display: block;
+  padding: 15px 0;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 #menu_box li:hover {
-    background-color: #333;
+  background-color: #333;
 }
 
 #menu_box li:hover a {
-    color: lightblue;
+  color: lightblue;
 }
 
-button{
-    margin-right: 1%;
-    color: whitesmoke;
-    padding: 5px 10px;
-    background-color: dimgray;
-    cursor: pointer;
+button {
+  margin-right: 1%;
+  color: whitesmoke;
+  padding: 5px 10px;
+  background-color: dimgray;
+  cursor: pointer;
+}
+
+.header-contenedor {
+  position: relative;
+  background-color: beige;
+  height: 100px; /* ajusta según necesites */
+}
+
+.header-titulos {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.usuario-header {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.usuario-header img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid gray;
+}
+
+.usuario-header p {
+  background-color: beige;
+  margin: 5px 0 0 0;
+  font-size: 14px;
+  color: #333;
+  padding: 0%;
+  margin: 0px;
 }
