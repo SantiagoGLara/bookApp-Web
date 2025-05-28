@@ -158,6 +158,7 @@ $rowBook = mysqli_fetch_assoc($resultBook);
   <div class="dato">
     <div class="etiqueta">
       <label for="pais">País de origen:</label>
+      <label><a href="../base/index.php?op=41&id=<?= $rowBook['id'] ?>">+</a></label>
     </div>
     <div class="control">
       <select class="" name="pais">
@@ -187,6 +188,7 @@ $rowBook = mysqli_fetch_assoc($resultBook);
   <div class="dato">
     <div class="etiqueta">
       <label for="lenguaje">Idioma:</label>
+      <label><a href="../base/index.php?op=51&id=<?= $rowBook['id'] ?>">+</a></label>
     </div>
     <div class="control">
       <select class="" name="lenguaje">

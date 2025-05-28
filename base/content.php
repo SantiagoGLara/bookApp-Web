@@ -28,6 +28,12 @@ if($user)
 		case '33':include('../content/proveedores/provider_delete.php');
 		break;//funciones provedores DELETE
 
+		case '41':include('../content/lenguajes/lenguage_new.php');break;
+		case '42':include('../content/lenguajes/lenguage_modify.php');break;
+
+		case '51':include('../content/lenguajes/lenguage_new.php');break;
+		case '52':include('../content/lenguajes/lenguage_modify.php');break;
+
 		case '61':include('../content/editoriales/editorial_new.php');break;
 		case '62':include('../content/editoriales/editorial_modify.php');break;
 
