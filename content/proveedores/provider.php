@@ -38,7 +38,7 @@
     <td><?= $row['email'] ?></td>
     <td><?= $row['fecha_alta'] ?></td>
     <!-- <td><a class="botonBorrar" href="../base/index.php ?op=33 & id=<?= $row['id'] ?>">&#128465;</a></td> -->
-    <td><a href="../base/index.php?op=32&id=<?$row['id']?>">&#9997;&#127995;</a></td>
+    <td><a href="../base/index.php?op=32&id=<?=$row['id']?>">&#9997;&#127995;</a></td>
 </tr>
 <?php } ?>
 <tr>
