@@ -72,4 +72,5 @@ button{
     color: whitesmoke;
     padding: 5px 10px;
     background-color: dimgray;
+    cursor: pointer;
 }

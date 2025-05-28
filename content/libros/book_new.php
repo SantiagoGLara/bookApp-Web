@@ -240,7 +240,7 @@
           <label for="">&nbsp;</label>
         </div>
         <div class="control" id="botones">
-          <button type="reset" name="button">Cancelar</button>
+          <button type="reset" name="button" onClick="location.href='../base/index.php?op=10'">Cancelar</button>
           <button type="submit" name="button">Enviar</button>
         </div>
       </div>
