@@ -1,14 +1,14 @@
 <?php
  $consulta="SELECT id,nombre,numcelular,email,fecha_alta,estado from proveedores";
- $result=bd_consulta($consulta)
+ $result=bd_consulta($consulta);
  ?>
- <form class="" action="../proveedores/provider_new_commit.php" method="post" enctype="multipart/form-data">
+ <form class="" action="../content/proveedores/provider_new_commit.php" method="post" enctype="multipart/form-data">
     <div class="dato">
         <div class="etiqueta">
             <label for="titulo">Nombre:</label> 
         </div>
         <div class="control">
-          <input type="text" name="titulo" value="">
+          <input type="text" name="nombre" value="">
         </div>
     </div>
     <div class="dato">
@@ -36,7 +36,4 @@
           <button type="submit" name="button">Enviar</button>
         </div>
       </div>
-    </form>
-
-    
- </form>
+</form>
