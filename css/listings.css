@@ -17,6 +17,7 @@ table thead th {
   /* Add a right border to header cells */
   border-right: 1px solid #DDE2E6; /* Or use the same color as border-bottom */
   padding: 12px 20px; /* Add padding here for consistent spacing */
+  border: 1px solid;
 }
 
 /* Remove the right border from the last header cell to avoid double borders */
