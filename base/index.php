@@ -8,7 +8,11 @@
     if (!$user) {
         include('../content/authenticate.php');
     } else {
-        include('../base/pantallabienvenida.php');
+        // Solo muestra la pantalla de bienvenida si no hay otra página solicitada
+        $showWelcome = empty($_GET) || (count($_GET) === 1 && isset($_GET['page']) && $_GET['page'] === 'bienvenida');
+        if ($showWelcome) {
+            include('../base/pantallabienvenida.php');
+        }
     }
 
 

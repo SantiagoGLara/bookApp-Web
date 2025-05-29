@@ -16,7 +16,8 @@
             <label for="titulo">Numero de celular:</label> 
         </div>
         <div class="control">
-          <input type="text" name="numcelular" pattern="[0-9]{10}" title="Por favor, introduce solo números (10 caracteres exactos)" placeholder="0000000000">
+          <input type="text" name="numcelular" pattern="[0-9]{10}" 
+          title="Por favor, introduce solo números (10 caracteres exactos)" placeholder="0000000000">
         </div>
     </div>
     <div class="dato">

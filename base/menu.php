@@ -5,7 +5,7 @@
 		<li><a href="index.php?op=30">Proveedores</a></li>
 		<li><a href="index.php?op=40">Compras</a></li>
 		<li><a href="index.php?op=50">Ventas</a></li>
-		<li><a href="index.php?op=5">Usuarios</a></li>
+		<li><a href="index.php?op=80">Usuarios</a></li>
 		<li><a href="index.php?op=00">Salir</a></li>
 	</ul>
 </nav>
