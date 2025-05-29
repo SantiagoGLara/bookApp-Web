@@ -31,5 +31,5 @@ for ($i = 0; $i < count($ids); $i++) {
 }
 
 // header("Location: ../../base/index.php?op=12&id=$id"); eliminamos para poder mostrar la alerta
-exit();
+
 ?>
