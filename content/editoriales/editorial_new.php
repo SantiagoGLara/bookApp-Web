@@ -25,6 +25,7 @@ $id = $_GET['id'];
         </div>
     </div>
 </form>
+<!-- para que no se vea luego luego el footer -->
 <div class="etiqueta">
     <label for="">&nbsp;</label>
 </div>

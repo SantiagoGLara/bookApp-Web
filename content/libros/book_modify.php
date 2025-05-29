@@ -168,6 +168,7 @@ $rowBook = mysqli_fetch_assoc($resultBook);
           <option value="<?= $row3['id'] ?>" <?php if ($row3['id'] == $rowBook['pais']) echo 'selected' ?>><?= $row3['nombre'] ?></option>
         <?php } ?>
       </select>
+      <label><a href="../base/index.php?op=42&id=<?= $rowBook['id'] ?>">&#9997;&#127995;</a></label>
     </div>
   </div>
 
