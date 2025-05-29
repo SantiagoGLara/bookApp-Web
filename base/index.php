@@ -14,7 +14,6 @@
             include('../base/pantallabienvenida.php');
         }
     }
-
     ?>
     <main>
         <?php include('content.php'); ?>
