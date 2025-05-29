@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap');
+  a {
+      color: inherit;       /* Hereda el color del texto del padre */
+      text-decoration: none; /* Elimina el subrayado */
+  }
+    /* Opcional: Cambiar el estilo al pasar el mouse */
+  a:hover {
+      cursor: pointer;
+  }
 
 header {
   text-align: center;

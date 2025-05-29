@@ -5,7 +5,7 @@
 <header>
 	<div class="header-contenedor">
 		<div class="header-titulos">
-			<h1>Book Marketing App</h1>
+			<h1><a href="../base/index.php">Book Marketing App</a></h1>
 			<h2>Books &#128218;</h2>
 		</div>
 		<div class="usuario-header">
