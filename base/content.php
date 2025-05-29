@@ -29,7 +29,7 @@ if($user)
 		case '44':include('../content/compras/compras_new_commit.php');break;
 		case '45':include('../content/compras/compras_delete.php');break;
 
-		// Casos idiomas
+		// Casos paises
 		case '41':include('../content/paises/countries_new.php');break;
 		case '42':include('../content/paises/countries_modify.php');break;
 
@@ -39,8 +39,8 @@ if($user)
 		case '54':include('../content/ventas/ventas_new_commit.php');break;
 		case '55':include('../content/ventas/ventas_delete.php');break;
 	
-		case '51':include('../content/paises/lenguage_new.php');break;
-		case '52':include('../content/paises/lenguage_modify.php');break;
+		case '51':include('../content/lenguajes/lenguage_new.php');break;
+		case '52':include('../content/lenguajes/lenguage_modify.php');break;
 
 		// Casos editoriales
 		case '61':include('../content/editoriales/editorial_new.php');break;

@@ -199,6 +199,7 @@ $rowBook = mysqli_fetch_assoc($resultBook);
           <option value="<?= $row4['id'] ?>" <?php if ($row4['id'] == $rowBook['idioma']) echo 'selected' ?>><?= $row4['lenguaje'] ?></option>
         <?php } ?>
       </select>
+      <label><a href="../base/index.php?op=52&id=<?= $rowBook['id'] ?>">&#9997;&#127995;</a></label>
     </div>
   </div>
 
