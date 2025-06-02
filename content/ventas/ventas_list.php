@@ -157,7 +157,10 @@
         <td><?= date('d/m/Y H:i', strtotime($row['fecha_venta'])) ?></td>
         <td><?= $row['metodo_pago'] ?: 'N/A' ?></td>
         <td class="total"><?= number_format($row['total'], 2) ?></td>
-        <td><a href="../base/index.php?op=55&id=<?= $row['id'] ?>">&#9997;&#127995;</a></td> <!-- Cancelar venta-->
+        <td>
+            <a href="../base/index.php?op=56&id=<?= $row['id'] ?>">🔍</a>
+            <a href="../base/index.php?op=55&id=<?= $row['id'] ?>">❌</a>
+        </td> <!-- Cancelar &#9997;&#127995; venta-->
     </tr>
     <?php } ?>
     <tr>

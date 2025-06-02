@@ -2,8 +2,8 @@
 function bd_consulta($query)
 {
 	$hostname="localhost";
-	$user="Santiago";
-	$password="ani56santi";
+	$user="root";
+	$password="";
 	$bd="books";
 	$connection = mysqli_connect($hostname, $user, $password,$bd);
 	if($connection == false){
