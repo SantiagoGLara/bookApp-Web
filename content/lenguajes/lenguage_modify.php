@@ -3,6 +3,9 @@ $idBook = $_GET['id'];
 $consulta = "SELECT * FROM lenguaje WHERE estado!='bajo'";
 $resultPaises = bd_consulta($consulta);
 ?>
+<div class="title">
+  <h3>Modificacion Lenguaje</h3>
+</div>
 
 <form class="" action="../content/lenguajes/lenguage_modify_commit.php" method="post" enctype="multipart/form-data">
 

@@ -2,14 +2,14 @@
 include('../../base/bd.php');
 
 $id = $_POST['id'];
-$nombre = $_POST['nombre'];
+$name = $_POST['paises'];
 $estado = "alto";
 
 // Insertar cliente
-$consulta = 'INSERT INTO pais (nombre, estado) VALUES 
-(' .'"' . $nombre . '","' . $estado . '")';
+$query = 'INSERT INTO pais (nombre, estado) VALUES 
+(' .  '"' . $name . '","' . $estado . '")';
 
-bd_consulta($consulta);
+bd_consulta($query);
 
 header("Location: ../../base/index.php?op=12&id=$id");
 ?>

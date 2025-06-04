@@ -1,5 +1,6 @@
 <?php
-$consulta = "SELECT book.id, isbn, titulo, autor.nombre as autor, tipo.tipo, lenguaje.lenguaje, book.stock, book.precio, book.estado
+$consulta = "SELECT book.id, isbn, titulo, autor.nombre as autor, 
+tipo.tipo, lenguaje.lenguaje, book.stock, book.precio, book.estado
 from book 
 inner join tipo on book.tipo=tipo.id
 inner join lenguaje on book.idioma=lenguaje.id
@@ -374,6 +375,9 @@ $result = bd_consulta($consulta);
   window.addEventListener("load", libros);
   window.addEventListener("load", asociarEventos);
 </script>
+<div class="title">
+  <h3>Listado libros</h3>
+</div>
 
 <table>
   <tr>
@@ -392,7 +396,7 @@ $result = bd_consulta($consulta);
   while ($row = mysqli_fetch_assoc($result)) {
     $i++;
   ?>
-    <tr>
+  <tr>
       <td><?= $i ?></td>
       <td><?= $row['isbn']  ?></td>
       <td><?= $row['titulo'] ?></td>
@@ -401,8 +405,11 @@ $result = bd_consulta($consulta);
       <td><?= $row['lenguaje'] ?></td>
       <td class="stock"><?= $row['stock']  ?></td>
       <td class="precio"><?= $row['precio']  ?></td>
-      <td><a href="../base/index.php?op=12&id=<?= $row['id'] ?>">&#9997;&#127995;</a></td>
-    </tr>
+      <td>
+        <a href="../base/index.php?op=12&id=<?= $row['id'] ?>">&#9997;&#127995;</a>
+        <a href="../base/index.php?op=13&id=<?= $row['id'] ?>">❌</a>
+      </td>
+  </tr>
 
   <?php } ?>
   <tr>

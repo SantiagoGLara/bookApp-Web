@@ -6,6 +6,11 @@ $resultPaises = bd_consulta($consulta);
 
 <form class="" action="../content/paises/countries_modify_commit.php" method="post" enctype="multipart/form-data">
 
+
+    <div class="title">
+        <h3>Modificacion Paises</h3>
+    </div>
+
     <input type="hidden" name="idBook" value="<?= $idBook ?>"> <!-- para enviar al commit -->
 
     <?php while ($row = mysqli_fetch_assoc($resultPaises)) { ?>

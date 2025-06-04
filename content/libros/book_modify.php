@@ -63,6 +63,9 @@ $rowBook = mysqli_fetch_assoc($resultBook);
     width: 50%
   }
 </style>
+<div class="title">
+  <h3>Modificacion libro</h3>
+</div>
 
 <form class="" action="../content/libros/book_modify_commit.php" method="post" enctype="multipart/form-data">
 

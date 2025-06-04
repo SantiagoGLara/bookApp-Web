@@ -17,7 +17,9 @@ header {
 * {
   font-family: 'Jacques Francois', sans-serif;
 }
-
+.title{
+  text-align: center;
+}
 body {
   font-family: 'Jacques Francois', sans-serif;
   margin: 0;

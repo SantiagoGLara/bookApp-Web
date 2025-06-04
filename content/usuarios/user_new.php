@@ -1,3 +1,6 @@
+<div class="title">
+  <h3>Nuevo Usuario</h3>
+</div>
 <form class="" action="../content/usuarios/user_new_commit.php" method="post" enctype="multipart/form-data">
 
     <div class="dato">

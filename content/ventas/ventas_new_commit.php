@@ -1,6 +1,8 @@
 <?php
 include('../../base/bd.php');
 include('../../base/global.php');
+include('../../base/session.php');
+
 
 // Obtener datos del formulario
 $cliente = $_POST['cliente'];
@@ -22,39 +24,16 @@ foreach ($libros as $libro) {
 }
 
 // Obtener el ID del usuario actual (asumiendo que está en sesión)
-// Si no tienes sistema de sesiones, puedes usar un valor fijo o modificar según tu sistema
 $idUsuario = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : 1;
 
-// Iniciar transacción para asegurar consistencia
-mysqli_autocommit($conexion, false);
-
 try {
-    // 1. Insertar la venta principal
-    $consultaVenta = "INSERT INTO ventas (id_cliente, id_usuario, fecha_venta, total, id_metodo_pago, estado, comentarios) VALUES (?, ?, NOW(), ?, ?, 'activo', ?)";
-    
-    $stmt = mysqli_prepare($conexion, $consultaVenta);
-    mysqli_stmt_bind_param($stmt, "iidis", $cliente, $idUsuario, $totalVenta, $metodoPago, $comentarios);
-    
-    if (!mysqli_stmt_execute($stmt)) {
-        throw new Exception("Error al insertar la venta: " . mysqli_error($conexion));
-    }
-    
-    // 2. Obtener el ID de la venta recién insertada
-    $idVenta = mysqli_insert_id($conexion);
-    
-    // 3. Insertar los detalles de la venta y actualizar stock
+    // Verificar stock disponible para todos los libros antes de proceder
     foreach ($libros as $libro) {
         $idLibro = $libro['id'];
         $cantidad = $libro['cantidad'];
-        $precioUnitario = $libro['precio'];
-        $subtotal = $cantidad * $precioUnitario;
         
-        // Verificar stock disponible antes de proceder
-        $consultaStock = "SELECT stock FROM book WHERE id = ? AND estado != 'bajo'";
-        $stmtStock = mysqli_prepare($conexion, $consultaStock);
-        mysqli_stmt_bind_param($stmtStock, "i", $idLibro);
-        mysqli_stmt_execute($stmtStock);
-        $resultStock = mysqli_stmt_get_result($stmtStock);
+        $consultaStock = "SELECT stock FROM book WHERE id = " . $idLibro . " AND estado != 'bajo'";
+        $resultStock = bd_consulta($consultaStock);
         
         if ($rowStock = mysqli_fetch_assoc($resultStock)) {
             if ($rowStock['stock'] < $cantidad) {
@@ -63,53 +42,58 @@ try {
         } else {
             throw new Exception("Libro no encontrado ID: " . $idLibro);
         }
+    }
+    
+    // 1. Insertar la venta principal
+    $consultaVenta = "INSERT INTO ventas (id_cliente, id_usuario, fecha_venta, total, id_metodo_pago, estado, comentarios) " .
+                     "VALUES (" . $cliente . ", " . $idUsuario . ", NOW(), " . $totalVenta . ", " . $metodoPago . ", 'activo', '" . $comentarios . "')";
+    
+    $resultVenta = bd_consulta($consultaVenta);
+    
+    if (!$resultVenta) {
+        throw new Exception("Error al insertar la venta");
+    }
+    
+    // 2. Obtener el ID de la venta recién insertada
+    $consultaMaxId = "SELECT MAX(id) as newid FROM ventas";
+    $resultMaxId = bd_consulta($consultaMaxId);
+    $rowMaxId = mysqli_fetch_assoc($resultMaxId);
+    $idVenta = $rowMaxId['newid'];
+    
+    // 3. Insertar los detalles de la venta y actualizar stock
+    foreach ($libros as $libro) {
+        $idLibro = $libro['id'];
+        $cantidad = $libro['cantidad'];
+        $precioUnitario = $libro['precio'];
+        $subtotal = $cantidad * $precioUnitario;
         
         // Insertar detalle de venta
-        $consultaDetalle = "INSERT INTO detalle_ventas (id_venta, id_libro, cantidad, precio_unitario, subtotal, estado) VALUES (?, ?, ?, ?, ?, 'activo')";
+        $consultaDetalle = "INSERT INTO detalle_ventas (id_venta, id_libro, cantidad, precio_unitario, subtotal, estado) " .
+                          "VALUES (" . $idVenta . ", " . $idLibro . ", " . $cantidad . ", " . $precioUnitario . ", " . $subtotal . ", 'alto')";
         
-        $stmtDetalle = mysqli_prepare($conexion, $consultaDetalle);
-        mysqli_stmt_bind_param($stmtDetalle, "iiidd", $idVenta, $idLibro, $cantidad, $precioUnitario, $subtotal);
+        $resultDetalle = bd_consulta($consultaDetalle);
         
-        if (!mysqli_stmt_execute($stmtDetalle)) {
-            throw new Exception("Error al insertar detalle de venta: " . mysqli_error($conexion));
+        if (!$resultDetalle) {
+            throw new Exception("Error al insertar detalle de venta para libro ID: " . $idLibro);
         }
         
         // Actualizar stock del libro
-        $consultaActualizarStock = "UPDATE book SET stock = stock - ? WHERE id = ?";
-        $stmtActualizar = mysqli_prepare($conexion, $consultaActualizarStock);
-        mysqli_stmt_bind_param($stmtActualizar, "ii", $cantidad, $idLibro);
+        $consultaActualizarStock = "UPDATE book SET stock = stock - " . $cantidad . " WHERE id = " . $idLibro;
+        $resultActualizar = bd_consulta($consultaActualizarStock);
         
-        if (!mysqli_stmt_execute($stmtActualizar)) {
-            throw new Exception("Error al actualizar stock: " . mysqli_error($conexion));
+        if (!$resultActualizar) {
+            throw new Exception("Error al actualizar stock para libro ID: " . $idLibro);
         }
     }
-    
-    // Confirmar la transacción
-    mysqli_commit($conexion);
     
     // Redireccionar con éxito
     header('Location: ../../base/index.php?op=50&success=venta_realizada&id_venta=' . $idVenta);
     
 } catch (Exception $e) {
-    // Deshacer la transacción en caso de error
-    mysqli_rollback($conexion);
-    
     // Log del error (opcional)
     error_log("Error en ventas_new_commit.php: " . $e->getMessage());
     
     // Redireccionar con error
     header('Location: ../../base/index.php?op=50&error=error_procesamiento&mensaje=' . urlencode($e->getMessage()));
 }
-
-// Restaurar autocommit
-mysqli_autocommit($conexion, true);
-
-// Cerrar statements si existen
-if (isset($stmt)) mysqli_stmt_close($stmt);
-if (isset($stmtStock)) mysqli_stmt_close($stmtStock);
-if (isset($stmtDetalle)) mysqli_stmt_close($stmtDetalle);
-if (isset($stmtActualizar)) mysqli_stmt_close($stmtActualizar);
-
-// Cerrar conexión
-mysqli_close($conexion);
 ?>

@@ -51,7 +51,11 @@
   .archivos{
     width:50%
   }
+  
 </style>
+<div class="title">
+  <h3>Nuevo Libro</h3>
+</div>
     <form class="" action="../content/libros/book_new_commit.php" method="post" enctype="multipart/form-data">
      
       <div class="dato">

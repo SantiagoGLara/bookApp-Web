@@ -9,6 +9,10 @@ table {
   font-family: serif;
   border-spacing: 0;
 }
+.small-list{
+  width:30%;
+  margin-left: 35%;
+}
 
 table thead th {
   font-weight: 600;

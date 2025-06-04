@@ -1,7 +1,9 @@
 <?php
 $id = $_GET['id'];
 ?>
-
+<div class="title">
+  <h3>Nueva Editorial</h3>
+</div>
 <form class="" action="../content/editoriales/editorial_new_commit.php" method="post" enctype="multipart/form-data">
     
     <input type="hidden" name="id" value="<?= $id ?>"> <!-- para enviar al commit -->

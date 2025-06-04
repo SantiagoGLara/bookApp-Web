@@ -2,6 +2,9 @@
 <?php
 $id = $_GET['id'];
 ?>
+<div class="title">
+  <h3>Nuevo Lenguaje</h3>
+</div>
 
 <form class="" action="../content/lenguajes/lenguage_new_commit.php" method="post" enctype="multipart/form-data">
     

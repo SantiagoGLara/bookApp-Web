@@ -5,35 +5,51 @@
 </div>
 <main class="funciones">
     <div class="funcion">
-        <img src="../images/InicioBook.png" alt="Libros">
-        <p>Libros</p>
+        <a href="../base/index.php?op=10">
+            <img src="../images/InicioBook.png" alt="Libros" re>
+            <p>Libros</p>
+        </a>
     </div>
     <div class="funcion">
-        <img src="../images/inicioClientes.png" alt="Clientes">
-        <p>Clientes</p>
+        <a href="../base/index.php?op=20">
+            <img src="../images/inicioClientes.png" alt="Clientes">
+            <p>Clientes</p>
+        </a>
     </div>
     <div class="funcion">
-        <img src="../images/inicioProveedores.png" alt="Proveedores">
-        <p>Proveedores</p>
+        <a href="../base/index.php?op=30">
+            <img src="../images/inicioProveedores.png" alt="Proveedores">
+            <p>Proveedores</p>  
+        </a>
     </div>
     <div class="funcion">
-        <img src="../images/inicioCompras.png" alt="Compras">
-        <p>Compras</p>
+        <a href="../base/index.php?op=40">
+            <img src="../images/inicioCompras.png" alt="Compras">
+            <p>Compras</p>
+        </a>
     </div>
     <div class="funcion">
-        <img src="../images/inicioVentas.png" alt="Ventas">
-        <p>Ventas</p>
+        <a href="../base/index.php?op=50">
+            <img src="../images/inicioVentas.png" alt="Ventas">
+            <p>Ventas</p>
+        </a>
     </div>
     <div class="funcion">
-        <img src="../images/inicioUsuarios.png" alt="Usuarios">
-        <p>Usuarios</p>
+        <a href="../base/index.php?op=80">
+            <img src="../images/inicioUsuarios.png" alt="Usuarios">
+            <p>Usuarios</p>
+        </a>
     </div>
     <div class="funcion">
+        <a href="../base/index.php?op=90">
         <img src="../images/inicioPaises.png" alt="Usuarios">
         <p>Paises</p>
+        </a>
     </div>
     <div class="funcion">
+        <a href="../base/index.php?op=57">
         <img src="../images/inicioLenguajes.png " alt="lenguajes">
         <p>lenguajes</p>
+        </a>
     </div>
 </main>

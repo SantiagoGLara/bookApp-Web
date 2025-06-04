@@ -3,7 +3,9 @@ $id = $_GET['id'];
 $consulta = "SELECT id,nombre from pais";
 $resultPaises = bd_consulta($consulta);
 ?>
-
+<div class="title">
+  <h3>Nuevo Autor</h3>
+</div>
 <form class="" action="../content/autores/autor_new_commit.php" method="post" enctype="multipart/form-data">
 
     <input type="hidden" name="id" value="<?= $id ?>"> <!-- para enviar al commit -->

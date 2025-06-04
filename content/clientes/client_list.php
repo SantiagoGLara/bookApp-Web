@@ -276,7 +276,10 @@ $result = bd_consulta($consulta);
       <td><?= $row['numcelular'] ?></td>
       <td><?= $row['email'] ?></td>
       <td><?= $row['fecha_alta'] ?></td>
-      <td><a href="../base/index.php?op=22&id=<?= $row['id'] ?>">&#9997;&#127995;</a></td>
+      <td>
+        <a href="../base/index.php?op=22&id=<?= $row['id'] ?>">&#9997;&#127995;</a>
+        <a href="../base/index.php?op=23&id=<?= $row['id'] ?>">❌</a>
+      </td>
     </tr>
   <?php } ?>
   <tr>

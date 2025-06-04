@@ -11,6 +11,9 @@ while ($rowPais = mysqli_fetch_assoc($resultPaises)) {
     $paises[] = $rowPais;
 }
 ?>
+<div class="title">
+  <h3>Modificacion autor</h3>
+</div>
 
 <form class="" action="../content/autores/autor_modify_commit.php" method="post" enctype="multipart/form-data">
 

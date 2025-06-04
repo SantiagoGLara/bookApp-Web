@@ -2,6 +2,9 @@
 <?php
 $id = $_GET['id'];
 ?>
+<div class="title">
+  <h3>Pais Nuevo</h3>
+</div>
 
 <form class="" action="../content/paises/countries_new_commit.php" method="post" enctype="multipart/form-data">
     
@@ -12,7 +15,7 @@ $id = $_GET['id'];
             <label for="nombre">Nombre:</label>
         </div>
         <div class="control">
-            <input type="text" name="nombre" value="">
+            <input type="text" name="paises" value="">
         </div>
     </div>
 

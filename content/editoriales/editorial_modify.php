@@ -3,6 +3,9 @@ $idBook = $_GET['id'];
 $consulta = "SELECT * FROM editorial WHERE estado!='bajo'";
 $resultEditoriales = bd_consulta($consulta);
 ?>
+<div class="title">
+  <h3>Modificacion Editorial</h3>
+</div>
 
 <form class="" action="../content/editoriales/editorial_modify_commit.php" method="post" enctype="multipart/form-data">
 

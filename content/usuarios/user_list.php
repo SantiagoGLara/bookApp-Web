@@ -25,7 +25,10 @@ $result = bd_consulta($consulta);
       <td><?= $row['nombre'] ?></td>
       <td><?= $row['password'] ?></td>
       <!-- <td></?= $row['foto'] ?></td> -->
-      <td><a href="../base/index.php?op=82&id=<?= $row['id'] ?>">&#9997;&#127995;</a></td>
+      <td>
+        <a href="../base/index.php?op=82&id=<?= $row['id'] ?>">&#9997;&#127995;</a>
+        <a href="../base/index.php?op=83&id=<?= $row['id'] ?>">❌</a>
+      </td>
     </tr>
   <?php } ?>
   <tr>

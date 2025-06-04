@@ -2,7 +2,9 @@
 $consulta = "SELECT * FROM usuarios WHERE estado!='bajo'";
 $resultEditoriales = bd_consulta($consulta);
 ?>
-
+<div class="title">
+  <h3>Modificacion Usuario</h3>
+</div>
 <form class="" action="../content/usuarios/user_modify_commit.php" method="post" enctype="multipart/form-data">
 
     <?php while ($row = mysqli_fetch_assoc($resultEditoriales)) { ?>

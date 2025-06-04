@@ -28,27 +28,6 @@
     background-color: transparent;
 }
 
-.tabla-venta {
-    margin: 20px 0;
-    background-color: white;
-}
-
-.tabla-venta th {
-    background-color: #6c757d !important;
-    color: white;
-    font-weight: bold;
-}
-
-.tabla-venta td {
-    text-align: center;
-    vertical-align: middle;
-}
-
-.tabla-venta .libro-nombre {
-    text-align: left;
-    font-weight: 500;
-}
-
 .total-venta {
     background-color: #d4edda;
     padding: 15px;
@@ -67,6 +46,7 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 12px;
+    transition: background-color 0.3s ease;
 }
 
 .btn-eliminar:hover {
@@ -103,6 +83,75 @@
     color: #6c757d;
     font-style: italic;
     text-align: center;
+}
+
+/* Estilos específicos para la tabla de ventas usando el mismo patrón que listings.css */
+.tabla-venta {
+    width: 80%;
+    margin-left: 10%;
+    border: solid 2px;
+    border-collapse: separate;
+    border-radius: 10px;
+    font-family: serif;
+    border-spacing: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tabla-venta thead th {
+    font-weight: 600;
+    border-bottom: 2px solid #DDE2E6;
+    border-right: 1px solid #DDE2E6;
+    padding: 12px 20px;
+    border: 1px solid;
+    background-color: #CCCCCC;
+}
+
+.tabla-venta thead th:last-child {
+    border-right: none;
+}
+
+.tabla-venta thead th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.tabla-venta thead th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.tabla-venta tbody td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #EEEEEE;
+    background-color: #FFFFFF;
+    transition: background-color 0.3s ease;
+    border-right: 1px solid #EEEEEE;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tabla-venta tbody td:last-child {
+    border-right: none;
+}
+
+.tabla-venta tbody tr:nth-child(odd) {
+    background-color: #FFFFFF;
+}
+
+.tabla-venta tbody tr:nth-child(even) {
+    background-color: antiquewhite;
+}
+
+.tabla-venta .libro-nombre {
+    text-align: left;
+    font-weight: 500;
+}
+
+.tabla-venta tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 8px;
+}
+
+.tabla-venta tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
 }
 </style>
 
